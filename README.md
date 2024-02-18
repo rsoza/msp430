@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to my journey of learning [https://embedded.fm/blog/ese101](Embedded Software Engineering 101 (ESE101)) ! This series is designed to equip you with the fundamental knowledge and skills required for embedded software engineering.
+Welcome to my journey of learning [Embedded Software Engineering 101 (ESE101)](https://embedded.fm/blog/ese101) ! This series is designed to equip you with the fundamental knowledge and skills required for embedded software engineering.
 
 ## Description
 
