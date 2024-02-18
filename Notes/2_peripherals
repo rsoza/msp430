@@ -1,0 +1,31 @@
+Q: How does a microcontroller interact with stuff outsifde of the microcontroller, like the lights?
+A: By using peripherals
+
+
+
+Peripherals
+	- Interfaces with the outside world
+	- Examples: GPIOs, I2C, SPI, UART, timers, and USB
+
+
+GPIOs
+	- General Putpose Input/Output
+	- pins with dedicated purpose
+	- Configured as:
+		1. Input
+			> GPIO pin tells the microcontroller what voltage is persent ont he pin
+			> Example: tells the MCU if button is pressed
+		2. Output
+			> MC chooses to set the GPIO pin to output either a high or low voltage
+			> Example: used to turn an LED on/off
+	- https://en.wikipedia.org/wiki/Three-state_logic 
+	- Controlling GPIOs
+		> peripheral memory: chunk of memory for controlling peripheras
+		> each peripheral has:
+			1. a base addres: the first (smallest) address a peripheral uses
+			2. a range: added to the base address to get a complete address
+		> Example:
+			the peripheral LED is connect to the GPIO pin P1.0, when the state changes the GPIO changes states
+			P1.0 = pin 1 bit 0
+		> fun fact: MSP430 wiring on a PCB = silk screen
+	- The idea of assigning memory addresses to peripherals is called memory mapping or memory mapped I/O or memory mapped peripherals

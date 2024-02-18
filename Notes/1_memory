@@ -1,0 +1,25 @@
+MSP430F5529 - memory
+
+Memory map
+	> shows adresses 
+	> Flash memory 128 KB of FM
+		- instructions are stored here
+		- this is big enough for a fitbit or consumer toy
+		- interrupt is here from 00FFFFh - 00FF80h
+			Three confusing stuff about interrupt:
+				1. HEX
+					- Memory addresses are almost always written as hex
+					- Manipulating addresses uses powers of two
+					- Microprocessor uses binary so powers of two is beneficial
+				2. Leading 0's
+					- Leadings zero's can be removed and the hex value stays the same
+					- This shows the full width of a number
+					- MSP43 uses 20-bit address which means largest number = FFFFFh
+					- Tells the compiler that this is a number not a variable name
+				3. Direction
+					- numbers are set high to low
+	> banks: section of bytes for the Main: code memory
+		- in msp430 32KB (0x8000 bytes)
+	> sectors: sections in RAM 
+		- each 2kb (0x800 bytes)
+	check out memory_map.png for the details of the msp430
