@@ -29,3 +29,22 @@ GPIOs
 			P1.0 = pin 1 bit 0
 		> fun fact: MSP430 wiring on a PCB = silk screen
 	- The idea of assigning memory addresses to peripherals is called memory mapping or memory mapped I/O or memory mapped peripherals
+	
+GPIO control registers:
+	- number of bits to control each GPIO pin
+	- three important control bits:
+		1. direction
+			> configures GPIO pin as input or output
+		2. ouptut
+			> if configured as output, output bit sets the GPIO pin to be 0 or 1 (low or high voltage)
+		3. input
+			> if configured as input, reading the input bit will tell if the voltage is low or high on the GPIO pin
+	Example: GPIO Port 1 control register
+		- each register is 8 bits wide
+		- each bit in register corresponds to one GPIO pin
+	- when LED is on the voltage is high
+
+
+Operators:
+	^= XOR byte instruction
+	|= bitwise or assignment
