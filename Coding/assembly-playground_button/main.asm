@@ -23,15 +23,36 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 ;-------------------------------------------------------------------------------
 ; Main loop here
 ;-------------------------------------------------------------------------------
-         ; Set GPIO P1.0 to be an output (PADIR bit == 1)
-           BIS.B      #1, &PADIR_L
-           ; Set GPIO P1.1 to be an input (PADIR bit == 0)
-           BIC.B      #2, &PADIR_L
 
-MainLoop:  ; infinite loop that does nothing
+			; Set GPIO P1.0 to be an output
+			; Bit set instruction
+			; #1 = first instruction set in PA1. so bit 0 in PA1.0
 
-           JMP MainLoop
-           NOP
+			BIS.B#1, &PADIR_L
+MainLoop:
+			; Set output on GPIO P1.0 to high voltage
+			BIS.B#1, &PAOUT_L
+
+			MOV #50000, R4 ; 0.2 seconds
+DelayOn:
+			SUB #1, R4	; subtract 1 from R4
+			CMP #0, R4	; compare R4 to 0
+			JNZ DelayOn ; while R4 != 0, keep looping
+
+
+			; Set output on GPIO P1.0 to low voltage
+			; bit clear instruction
+			BIC.B#1, &PAOUT_L
+
+			MOV #50000, R4
+DelayOff:
+			SUB #1, R4
+			CMP #0, R4
+			JNZ DelayOff
+
+			JMP MainLoop
+
+			NOP
 ;-------------------------------------------------------------------------------
 ; Stack Pointer definition
 ;-------------------------------------------------------------------------------
